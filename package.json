@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "lint": "./node_modules/.bin/eslint src"
+    "coverage:open": "open ./coverage/lcov-report/index.html",
+    "lint": "./node_modules/.bin/eslint src",
+    "precommit": "npm run lint && npm test"
   },
   "jest": {
     "verbose": true,
@@ -17,7 +19,7 @@
       "/node_modules/",
       "/coverage/"
     ],
-    "coverageDirectory": "coverage",
+    "coverageDirectory": "./coverage",
     "coverageThreshold": {
       "global": {
         "branches": 75,
@@ -46,6 +48,7 @@
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.1",
     "eslint-plugin-standard": "^2.0.1",
+    "husky": "^0.13.1",
     "jest": "18.1.0"
   }
 }
