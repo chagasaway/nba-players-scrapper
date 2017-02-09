@@ -3,11 +3,11 @@ import path from 'path'
 import fs from 'fs'
 
 class CsvExporter {
-  constructor(directory) {
+  constructor (directory) {
     this.directory = directory || path.join(__dirname, '..', '..', 'data')
   }
 
-  export(filename, items) {
+  export (filename, items) {
     return fs.writeFile(
       `${this.directory}/${filename}.csv`,
       this._csv(
@@ -21,11 +21,11 @@ class CsvExporter {
     )
   }
 
-  _csv(data, fields) {
+  _csv (data, fields) {
     return json2csv({ data: data, fields: fields })
   }
 
-  _fields(items) {
+  _fields (items) {
     return Object.keys(items[0])
   }
 }

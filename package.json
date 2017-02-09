@@ -4,13 +4,19 @@
   "description": "A basketball-reference.com data scrapper",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "lint": "./node_modules/.bin/eslint src"
   },
   "jest": {
     "verbose": true,
     "collectCoverage": true,
-    "collectCoverageFrom": ["**/*.{js}"],
-    "coveragePathIgnorePatterns": ["/node_modules/", "/coverage/"],
+    "collectCoverageFrom": [
+      "**/*.{js}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/coverage/"
+    ],
     "coverageDirectory": "coverage",
     "coverageThreshold": {
       "global": {
@@ -37,6 +43,9 @@
     "babel-jest": "^18.0.0",
     "babel-polyfill": "^6.22.0",
     "eslint": "^3.15.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.4.1",
+    "eslint-plugin-standard": "^2.0.1",
     "jest": "18.1.0"
   }
 }
