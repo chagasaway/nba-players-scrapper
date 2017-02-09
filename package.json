@@ -3,11 +3,40 @@
   "version": "1.0.0",
   "description": "A basketball-reference.com data scrapper",
   "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true,
+    "collectCoverageFrom": ["**/*.{js}"],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/coverage/"],
+    "coverageDirectory": "coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 75,
+        "functions": 75,
+        "lines": 75,
+        "statements": 75
+      }
+    }
+  },
   "repository": {},
   "author": "Fellipe Chagas <chagas.0@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "babel": "^6.5.2",
+    "babel-core": "^6.22.1",
+    "babel-plugin-transform-class-properties": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
     "json2csv": "3.7.3",
     "scrape-it": "3.2.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-jest": "^18.0.0",
+    "babel-polyfill": "^6.22.0",
+    "eslint": "^3.15.0",
+    "jest": "18.1.0"
   }
 }

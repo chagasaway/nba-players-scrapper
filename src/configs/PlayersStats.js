@@ -1,5 +1,3 @@
-'use strict'
-
 const _queryParams = (year, offset) => {
   let query = `request=1&match=single&type=totals&per_minute_base=36&per_poss_base=100&lg_id=NBA&is_playoffs=N&year_min=${year}&year_max=${year}`
   query += '&franch_id=&season_start=1&season_end=-1&age_min=0&age_max=99&shoot_hand=&height_min=0&height_max=99&birth_country_is=Y&birth_country=&birth_state=&college_id=&draft_year='

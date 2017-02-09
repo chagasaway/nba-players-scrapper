@@ -1,14 +1,13 @@
-'use strict'
-
-const scrapeIt = require('scrape-it')
+import scrapeIt from 'scrape-it'
 
 class Scrapper {
-  constructor(scrapperConfig) {
+  constructor(scrapperConfig, scrapeService = scrapeIt) {
     this.scrapperConfig = scrapperConfig
+    this.scrapeService = scrapeService
   }
 
   start(params) {
-    return scrapeIt(
+    return this.scrapeService(
       this.scrapperConfig.url(params), this.scrapperConfig.config
     );
   }

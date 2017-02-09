@@ -1,13 +1,11 @@
-'use strict'
-
-const Scrapper = require('./src/Scrapper')
+const Scrapper = require('./src/services/Scrapper')
 const PlayersStatsConfig = require('./src/configs/PlayersStats')
 const PlayersStats = require('./src/repositories/PlayersStats')
 const CsvExporter = require('./src/services/CsvExporter')
 
 console.log('Started...')
 
-const app = new Scrapper(PlayersStatsConfig)
+const scrapper = new Scrapper(PlayersStatsConfig)
 const repository = new PlayersStats(CsvExporter)
 
 let offset = 0
@@ -21,11 +19,10 @@ let _delay = (t) => {
 
 const _scrap = (year, offset) => {
   console.log(`Running with year: ${year} and ${offset} offset...`)
-  return app.start({ year: year, offset: offset }).then((result) => {
+  return scrapper.start({ year: year, offset: offset }).then((result) => {
     console.log(`Scrapped ${result.items.length} items...`)
     if (result.items.length == 0) {
-      console.log('Exporting data...')
-      return repository.export(year)
+      return Promise.resolve(true)
     }
     console.log('Adding items to repository...')
     result.items.map(repository.add.bind(repository))
@@ -45,5 +42,7 @@ for(let year = 1984; year <= 2016; year++) {
 }
 
 Promise.all(promises).then(() => {
-  console.log('Done!')
+  repository.export().then(() => {
+    console.log('Done!')
+  })
 })

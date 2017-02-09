@@ -1,8 +1,6 @@
-'use strict'
-
-const json2csv = require('json2csv')
-const path = require('path')
-const fs = require('fs')
+import json2csv from 'json2csv'
+import path from 'path'
+import fs from 'fs'
 
 class CsvExporter {
   constructor(directory) {
@@ -10,7 +8,6 @@ class CsvExporter {
   }
 
   export(filename, items) {
-    console.log(`Exported ${items.length} items to ${filename}`)
     return fs.writeFile(
       `${this.directory}/${filename}.csv`,
       this._csv(
@@ -20,7 +17,6 @@ class CsvExporter {
         if (err) {
           return console.log(err)
         }
-        console.log('Exported!')
       }
     )
   }
