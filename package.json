@@ -1,0 +1,15 @@
+{
+  "name": "basketball-reference-scrapper",
+  "version": "1.0.0",
+  "description": "A basketball-reference.com scrapper",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Fellipe Chagas",
+  "license": "MIT",
+  "dependencies": {
+    "json2csv": "^3.7.3",
+    "scrape-it": "^3.2.2"
+  }
+}
