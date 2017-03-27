@@ -1,7 +1,5 @@
-import scrapeIt from 'scrape-it'
-
 class Scrapper {
-  constructor (scrapperConfig, scrapeService = scrapeIt) {
+  constructor (scrapperConfig, scrapeService) {
     this.scrapperConfig = scrapperConfig
     this.scrapeService = scrapeService
   }

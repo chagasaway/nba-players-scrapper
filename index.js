@@ -1,3 +1,5 @@
+import scrapeIt from 'scrape-it'
+
 const Scrapper = require('./src/services/Scrapper')
 const PlayersStatsConfig = require('./src/configs/PlayersStats')
 const PlayersStats = require('./src/repositories/PlayersStats')
@@ -5,7 +7,7 @@ const CsvExporter = require('./src/services/CsvExporter')
 
 console.log('Started...')
 
-const scrapper = new Scrapper(PlayersStatsConfig)
+const scrapper = new Scrapper(PlayersStatsConfig, scrapeIt)
 const repository = new PlayersStats(CsvExporter)
 
 let offset = 0
