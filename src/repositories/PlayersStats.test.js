@@ -2,7 +2,7 @@ import PlayersStats from './PlayersStats'
 
 test('should add player stat to collection', () => {
   // given
-  let repository = new PlayersStats([])
+  let repository = new PlayersStats()
   let playerStats = { id: 1, data: 'some-data' }
 
   // when
