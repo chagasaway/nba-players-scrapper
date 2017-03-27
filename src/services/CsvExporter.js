@@ -2,30 +2,34 @@ import json2csv from 'json2csv'
 import path from 'path'
 import fs from 'fs'
 
+const baseDirectory = path.join(__dirname, '..', '..', 'data')
+
 class CsvExporter {
-  constructor (directory) {
-    this.directory = directory || path.join(__dirname, '..', '..', 'data')
+  constructor (fileSystem = fs, directory = baseDirectory) {
+    this.fileSystem = fileSystem
+    this.directory = directory
   }
 
   export (filename, items) {
-    return fs.writeFile(
-      `${this.directory}/${filename}.csv`,
-      this._csv(
-        items, this._fields(items)
-      ),
-      (err) => {
-        if (err) {
-          return console.log(err)
-        }
-      }
+    return this.fileSystem.writeFile(
+      this._filename(filename),
+      this._csv(items)
     )
   }
 
-  _csv (data, fields) {
-    return json2csv({ data: data, fields: fields })
+  _filename (filename) {
+    return `${this.directory}/${filename}.csv`
+  }
+
+  _csv (items) {
+    const fields = this._fields(items)
+    return json2csv({ data: items, fields: fields })
   }
 
   _fields (items) {
+    if (!items.length) {
+      return []
+    }
     return Object.keys(items[0])
   }
 }
