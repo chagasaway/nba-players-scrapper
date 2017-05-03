@@ -1,13 +1,17 @@
 class Scrapper {
-  constructor (scrapperConfig, scrapeService) {
-    this.scrapperConfig = scrapperConfig
+  constructor (ConfigBuilder, scrapeService) {
+    this.ConfigBuilder = ConfigBuilder
     this.scrapeService = scrapeService
   }
 
   start (params) {
-    return this.scrapeService(
-      this.scrapperConfig.url(params), this.scrapperConfig.config
-    )
+    const config = this._config(params)
+    return this.scrapeService(config.url, config.config)
+  }
+
+  _config (params) {
+    const configBuilder = new this.ConfigBuilder(params)
+    return configBuilder.build()
   }
 }
 

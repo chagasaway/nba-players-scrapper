@@ -2,7 +2,7 @@ class Runner {
   constructor (params) {
     this.offset = 0
     this.promises = []
-    this.scrapper = new params.Scrapper(params.config, params.scrapeIt)
+    this.scrapper = new params.Scrapper(params.ConfigBuilder, params.scrapeIt)
     this.repository = new params.Repository(params.Exporter)
   }
 
