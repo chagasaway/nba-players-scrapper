@@ -13,7 +13,7 @@ class Runner {
       )
     }
 
-    Promise.all(this.promises).then(() => {
+    return Promise.all(this.promises).then(() => {
       return this.repository.export()
     })
   }
@@ -34,7 +34,7 @@ class Runner {
 
   _addItemsToRepository (items) {
     console.log(`Adding ${items.length} items to repository...`)
-    items.map(this.repository.add.bind(this.repository))
+    items.map(item => this.repository.add(item))
   }
 }
 
