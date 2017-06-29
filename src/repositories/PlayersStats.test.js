@@ -2,11 +2,11 @@ import PlayersStats from './PlayersStats'
 
 test('should add player stat to collection', () => {
   // given
-  let repository = new PlayersStats()
-  let playerStats = { id: 1, data: 'some-data' }
+  const repository = new PlayersStats()
+  const playerStats = { id: 1, data: 'some-data' }
 
   // when
-  let added = repository.add(playerStats)
+  const added = repository.add(playerStats)
 
   // then
   expect(added).toBeTruthy()
@@ -16,14 +16,14 @@ test('should add player stat to collection', () => {
 
 test('should return players stats collection', () => {
   // given
-  let playersStats = [
+  const playersStats = [
     { id: 1, data: 'some-data' },
     { id: 2, data: 'another-data' }
   ]
-  let repository = new PlayersStats(playersStats)
+  const repository = new PlayersStats({}, playersStats)
 
   // when
-  let collection = repository.all()
+  const collection = repository.all()
 
   // then
   expect(collection.length).toBe(2)
@@ -32,12 +32,16 @@ test('should return players stats collection', () => {
 
 test('should export data with a given exporter service', () => {
   // given
-  let playersStats = [
+  const playersStats = [
     { id: 1, data: 'some-data' },
     { id: 2, data: 'another-data' }
   ]
-  let mockExport = jest.fn()
-  let repository = new PlayersStats(playersStats, { export: mockExport })
+  const mockExport = jest.fn()
+  const exporter = { export: mockExport }
+  const Exporter = () => {
+    return exporter
+  }
+  const repository = new PlayersStats(Exporter, playersStats)
 
   // when
   repository.export()

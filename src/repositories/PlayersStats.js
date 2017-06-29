@@ -1,6 +1,6 @@
 class PlayersStats {
-  constructor (playersStats = [], exporterService = {}) {
-    this.exporterService = exporterService
+  constructor (ExporterService = {}, playersStats = []) {
+    this.ExporterService = ExporterService
     this.playersStats = playersStats
   }
 
@@ -13,7 +13,7 @@ class PlayersStats {
   }
 
   export () {
-    return this.exporterService.export('players_stats', this.playersStats)
+    return new this.ExporterService().export('players_stats', this.playersStats)
   }
 }
 

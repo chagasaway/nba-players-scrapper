@@ -17,7 +17,8 @@
     ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
-      "/coverage/"
+      "/coverage/",
+      "index.js"
     ],
     "coverageDirectory": "./coverage",
     "coverageThreshold": {
@@ -37,6 +38,7 @@
     "babel-core": "^6.22.1",
     "babel-plugin-transform-class-properties": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
+    "babel-register": "^6.24.1",
     "json2csv": "3.7.3",
     "scrape-it": "3.2.2"
   },

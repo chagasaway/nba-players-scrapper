@@ -1,7 +1,9 @@
-import scrapeIt from 'scrape-it'
+require('babel-register')
+
+const scrapeIt = require('scrape-it')
 
 const Scrapper = require('./src/services/Scrapper')
-const ConfigBuilder = require('./src/services/ConfigBuilder')
+const ConfigBuilder = require('./src/services/ConfigBuilder').default
 const PlayersStats = require('./src/repositories/PlayersStats')
 const CsvExporter = require('./src/services/CsvExporter')
 const Runner = require('./src/services/Runner')
@@ -15,6 +17,6 @@ const runner = new Runner({
 })
 
 const startYear = 1984
-const endYear = 2016
+const endYear = 1984
 
 runner.run(startYear, endYear).then(() => console.log('Done! (:'))
