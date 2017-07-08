@@ -1,7 +1,7 @@
-jest.mock('fs')
-
 import CsvExporter from './CsvExporter'
 import fs from 'fs'
+
+jest.mock('fs')
 
 test('should export an empty CSV file', () => {
   // given
