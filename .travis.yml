@@ -4,3 +4,10 @@ node_js:
   - stable
 env:
   CODECLIMATE_REPO_TOKEN: 132d25e87f2df299840cb4c9bab2caa8b3a838069e86f6095500b09dbff82e9c
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - cc-test-reporter before-build
+script:
+  - npm test
+  - cc-test-reporter after-build --exit-code $?
