@@ -9,5 +9,5 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 script:
-  - npm test
-  - ./cc-test-reporter after-build --exit-code $EXIT_CODE
+  - yarn test
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
