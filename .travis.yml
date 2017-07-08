@@ -1,0 +1,6 @@
+sudo: required
+language: node_js
+node_js:
+  - stable
+env:
+  CODECLIMATE_REPO_TOKEN: 132d25e87f2df299840cb4c9bab2caa8b3a838069e86f6095500b09dbff82e9c
