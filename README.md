@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/chagasaway/nba-players-scrapper.svg?branch=master)](https://travis-ci.org/cchagasaway/nba-players-scrapper)
+[![Build Status](https://travis-ci.org/chagasaway/nba-players-scrapper.svg?branch=master)](https://travis-ci.org/chagasaway/nba-players-scrapper)
 [![Code Climate](https://codeclimate.com/github/chagasaway/nba-players-scrapper/badges/gpa.svg)](https://codeclimate.com/github/chagasaway/nba-players-scrapper)
 [![Test Coverage](https://codeclimate.com/github/chagasaway/nba-players-scrapper/badges/coverage.svg)](https://codeclimate.com/github/chagasaway/nba-players-scrapper)
 [![Issue Count](https://codeclimate.com/github/chagasaway/nba-players-scrapper/badges/issue_count.svg)](https://codeclimate.com/github/chagasaway/nba-players-scrapper)
